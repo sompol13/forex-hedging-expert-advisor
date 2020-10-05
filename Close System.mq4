@@ -6,16 +6,29 @@
 #property copyright "Copyright 2020, Sompol Techawattanalertkij"
 #property link "https://github.com/sompol13/expert-advisor-template"
 #property version "1.0"
+#property strict
+
+input int frequencyOfTimer = 15; // Determine the frequency of timer event occurrence (seconds).
+input double ceilingPrice = 0.81501; // The ceiling price of the zone to be play (significance).
+input double middlePrice = 0.74497; // The middle price of the zone to be play (significance).
+input double floorPrice = 0.66380; // The floor price of the zone to be play (significance).
 
 /**
  * The function is called in indicators and EAs when the Init event occurs. 
  * It is used to initialize a running MQL5 program.
  */
 int OnInit() {
-   // Set timer every minutes.
-   EventSetTimer(60);
+   // Create a timer from input.
+   EventSetTimer(frequencyOfTimer);
    // The EA success initialized.
    return(INIT_SUCCEEDED);
+}
+
+/**
+ * The OnTimer() function is called when the timer event occurs.
+ */
+void OnTimer() {
+   Print("OnTimer event occurs.");
 }
 
 /**
@@ -23,13 +36,6 @@ int OnInit() {
  * It is used to deinitialize a running MQL5 program.
  */
 void OnDeinit(const int reason) {
-   // Release the OnInit timer.
+   // Terminal the OnInit timer.
    EventKillTimer();
-}
-
-/**
- * The OnTimer() function is called when the Timer event occurs.
- */
-void OnTimer() {
-   Print("OnTimer event occurs.");
 }
