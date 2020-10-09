@@ -1,17 +1,22 @@
-/**
- * CloseSystem.mq5
- * Copyright 2020, Sompol Techawattanalertkij
- * https://github.com/sompol13/close-system
- */
+//+------------------------------------------------------------------+
+//|                                                          Rod.mqh |
+//|                       Copyright 2020, Sompol Techawattanalertkij |
+//|                      https://github.com/sompol13/expert-advisors |
+//+------------------------------------------------------------------+
 #property copyright "Copyright 2020, Sompol Techawattanalertkij"
-#property link "https://github.com/sompol13/expert-advisor-template"
-#property version "1.0"
+#property link      "https://github.com/sompol13/expert-advisors"
+#property version   "1.00"
 #property strict
 
-input int frequencyOfTimer = 15; // Determine the frequency of timer event occurrence (seconds).
-input double ceilingPrice = 0.81501; // The ceiling price of the zone to be play (significance).
-input double middlePrice = 0.74497; // The middle price of the zone to be play (significance).
-input double floorPrice = 0.66380; // The floor price of the zone to be play (significance).
+input int frequencyOfTimer = 15;       // Determine the frequency of timer event occurrence (seconds).
+input int takeProfitPoint = 400;       // The number of target points for each rod (points).
+input double ceilingPrice = 0.81501;   // The ceiling price of the zone to be play (significance).
+input double middlePrice = 0.74497;    // The middle price of the zone to be play (significance).
+input double floorPrice = 0.66380;     // The floor price of the zone to be play (significance).  
+input bool isDrawShortOrder = false;   // Put virtual long order horizontal line on current graph.
+input bool isDrawLongOrder = true;     // Put virtual short order horizontal line on current graph.
+input bool allowHedgingShort = false;  // Enable hedging that open short order at the same prices.
+input bool allowShortBottom = false;   // Keep open short hedging even price is below middle price. 
 
 /**
  * The function is called in indicators and EAs when the Init event occurs. 
