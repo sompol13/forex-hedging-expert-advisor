@@ -9,17 +9,20 @@
 #property strict
 
 /**
- * that represent the tradign order.
+ * Rod class represent the trading order.
  */
 class Rod {
-   private:
+   
+   // The public attributes.
    public:
-      Rod();
-      ~Rod();
+      int mMagic;
+      
+      // The default constructure method.
+      Rod() {
+      }
+      
+      // The parametric constructure method.
+      Rod(int magic) {
+         mMagic = magic;
+      }
 };
-
-Rod::Rod() {
-}
-
-Rod::~Rod() {
-}
