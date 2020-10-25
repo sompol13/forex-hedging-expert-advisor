@@ -11,18 +11,18 @@
 /**
  * Rod class represent the trading order.
  */
-class Rod {
+class Zone {
    
    // The public attributes.
    public:
       int mMagic;
       
       // The default constructure method.
-      Rod() {
+      Zone() {
       }
       
       // The parametric constructure method.
-      Rod(int magic) {
+      Zone(int magic) {
          mMagic = magic;
       }
 };
